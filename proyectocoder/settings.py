@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appassistance',
+    'bootstrap5',
+    # 'bootstrap_modal_forms',
 ]
 
 MIDDLEWARE = [

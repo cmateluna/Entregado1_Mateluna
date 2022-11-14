@@ -1,0 +1,14 @@
+{% extends 'appassistance/base.html' %} 
+
+
+{% block contenido %} 
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ formulario.as_p }}
+
+    <input type="submit" value="Cargar obras">
+</form>
+
+{% endblock %}

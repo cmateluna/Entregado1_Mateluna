@@ -73,3 +73,16 @@ def creacion_obras(request):
 
     formulario = ObrasFormulario()
     return render(request, "appassistance/obras_formulario.html", {"formulario": formulario})
+
+
+def buscar_trabajadores(request):
+    
+    if request.GET:
+        nombre_trabajador = request.GET.get("nombre_trabajador", "")
+        if nombre_trabajador =="":
+             trabajadores = []
+        else:
+            trabajadores = Trabajadores.objects.filter(nombre__icontains=nombre_trabajador)     
+        return render(request, "appassistance/busqueda_trabajadores.html", {"listado_trabajador": trabajadores})
+    
+    return render(request, "appassistance/busqueda_trabajadores.html",{"listado_trabajador": []})    

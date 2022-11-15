@@ -1,0 +1,19 @@
+{% extends 'appassistance/base.html' %}
+{% block contenido %}
+
+<form method="get">
+  <p>Nombre trabajadores: <input type="text" name="nombre_trabajador" /></p>
+  <input type="submit" value="Buscar" />
+</form>
+
+{% if listado_trabajador %}
+
+<ul>
+  {% for trabajador in listado_trabajador %}
+  <li>{{trabajador.nombre}} {{trabajador.apellido}}</li>
+  {% endfor %}
+</ul>
+
+{% endif %} 
+
+{% endblock %}

@@ -3942,7 +3942,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #000;
+  color: black;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3952,7 +3952,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #000;
+  color: black;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -7812,7 +7812,7 @@ textarea.form-control-lg {
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 .bg-success {
@@ -11302,7 +11302,7 @@ textarea.form-control-lg {
 
 header.masthead {
   position: relative;
-  /* background-color: #343a40; */
+  background-color: #343a40;
   background: url("../assets/img/sitio-cchc-slider.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
@@ -11311,7 +11311,7 @@ header.masthead {
 header.masthead:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
+  /* background-color: #1c375e; */
   height: 100%;
   width: 100%;
   top: 0;
@@ -11359,7 +11359,7 @@ header.masthead h1, header.masthead .h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("../assets/img/sitio-cchc-slider.jpg") no-repeat center center;
+  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;

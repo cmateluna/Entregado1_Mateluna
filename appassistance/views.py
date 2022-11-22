@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from appassistance.models import Trabajadores, Empresa, Obra
 from appassistance.forms import TrabajadoresFormulario, EmpresasFormulario, ObrasFormulario
+from django.contrib.auth import login, authenticate
+
+
 
 # Create your views here.
 
 def index(request):
-    
     return render(request, "appassistance/base.html")
 
 
@@ -86,3 +87,7 @@ def buscar_trabajadores(request):
         return render(request, "appassistance/busqueda_trabajadores.html", {"listado_trabajador": trabajadores})
     
     return render(request, "appassistance/busqueda_trabajadores.html",{"listado_trabajador": []})    
+
+
+
+

@@ -20,6 +20,19 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'appassistance/css/styles.css' %}" rel="stylesheet" />
 
+        <!-- message here -->
+
+        {% if messages %}
+        {% for message in messages %}
+
+        <script>
+            alert("{{ message }}");
+        </script>
+
+  {% endfor %}
+  {% endif %}
+
+
 
     </head>
     <body id="page-top">
@@ -35,14 +48,31 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
+                
+                <!--Menu principal-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
+
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-trabajadores-crear' %}">Trabajadores</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-empresas-crear' %}">Empresas</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-obras-crear' %}">Obras</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-primary" href="{% url 'coder-trabajadores-buscar' %}">Buscador</a></li>
+
+
+                        {% if user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-trabajadores-crear' %}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Trabajadores</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-empresas-crear' %}"><i class="fa fa-building" aria-hidden="true"></i>&nbsp; Empresas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'coder-obras-crear' %}"><i class="fa fa-industry" aria-hidden="true"></i>&nbsp; Obras</a></li>
+
+                        {% comment %} <li class="nav-item mx-0 mx-lg-1"><a class="btn btn-primary" href="{% url 'coder-trabajadores-buscar' %}">Buscador</a></li> {% endcomment %}
+
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "logout" %}"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp; Bienvenido {{user.username}}!</a></li> 
+                        {% else %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "register" %}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Sign up</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url "login" %}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Log in</a></li> 
+                        {% endif %}
+
                     </ul>
-                </div>
+
+                </div> 
+
             </div>
         </nav>
         <!-- Masthead-->
@@ -64,6 +94,16 @@
         {% block contenido %}
 
         {% endblock %}
+
+        <div class="row">
+            {% block start %}
+            {% if user.is_authenticated %}
+            <center><h1>welcome back {{user.username}}!</h1></center>
+            {% else %}
+            <center><h1>log in, plz . . .</h1></center>
+            {% endif %}
+            {% endblock %}
+        </div>
 
 
      <!-- Footer-->

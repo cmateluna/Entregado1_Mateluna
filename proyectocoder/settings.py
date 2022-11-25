@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+        
     'appassistance',
-    # 'crispy_forms',
+    'crispy_forms',
     'bootstrap5',
-    # 'bootstrap_modal_forms',
+    # 'user.apps.UserConfig',
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,7 +126,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
+#STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
+
+LOGIN_REDIRECT_URL ="index"
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+####################collage email id ##############
+EMAIL_HOST_USER="tacc2325@gmail.com"
+EMAIL_HOST_PASSWORD="#"
+##################################################
+
 
 
 # Default primary key field type

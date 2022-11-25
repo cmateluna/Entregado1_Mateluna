@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Trabajadores(models.Model):
@@ -21,3 +22,4 @@ class Obra(models.Model):
     direccion = models.CharField(max_length=250)
     email = models.EmailField()
     celular = models.IntegerField()    
+    

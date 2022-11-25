@@ -1,0 +1,33 @@
+{% extends "appassistance/base.html" %}
+{% block start %}
+
+{% load crispy_forms_tags %}
+
+<!--Login--> 
+<div class="container py-5">
+
+<div class="card">
+ <div class="card-body">
+  <h4 class="card-title">Inicie Sesión</h4>
+
+  <form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}">
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-primary btn-block">
+    <span class="btn-label btn-label-right"><i class="fa fa-check"></i></span>&nbsp; Iniciar Sesión
+  </button>
+  </form>
+
+  <div class="border-top pt-3">
+    <small class="text-muted">
+        ¿No tiene una cuenta? <a class="ml-2" href="{% url 'register' %}">Cree una cuenta.</a>
+    </small>
+ </div>
+ 
+  </div>
+ </div>
+</div>
+ 
+
+{% endblock start %}

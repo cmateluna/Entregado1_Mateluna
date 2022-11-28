@@ -1,14 +1,27 @@
 {% extends 'appassistance/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block contenido  %}
 
-<form action="" method="post">
+<!--Trabajador-->
+<div id="login-form-wrap">
+    <div class="card">
+        <div class="card-body">
 
-    {% csrf_token %}
-    {{formulario.as_p}}
+        </br>
+        <form method="post">
+            {% csrf_token %}
+             
+            {{formulario.as_p}} 
+           
+            <button type="submit" value="Crear trabajador" class="btn btn-success btn-labeled pull-right">
+             <span class="btn-label btn-label-right"><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp; Crear Trabajador
+            </button>
 
-    <input type="submit" value="Crear trabajador">
-
-<form>    
+        </form>
+        </div>
+    </div>
+</div>
 
 {% endblock  %}

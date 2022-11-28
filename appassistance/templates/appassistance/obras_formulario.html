@@ -2,13 +2,22 @@
 
 {% block contenido  %}
 
-<form method="post">
+<!--Obra-->
+<div id="login-form-wrap">
+    <div class="card">
+        <div class="card-body">
+        </br>
+            <form method="post">
+                {% csrf_token %}
+                {{formulario.as_p}}
 
-    {% csrf_token %}
-    {{formulario.as_p}}
+                <button type="submit" value="Crear empresa" class="btn btn-success btn-labeled pull-right">
+                    <span class="btn-label btn-label-right"><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp; Crear Obra
+                </button>
+            
+            <form>    
+        </div>
+    </div>
+</div>
 
-    <input type="submit" value="Crear obra">
-
-<form>    
-
-    {% endblock %}    
+{% endblock %}    
